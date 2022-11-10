@@ -1,11 +1,18 @@
 // dichiarazioni costanti/variabili globali
 const btnGenerate = document.querySelector(".btn_generate");
 const difficultyEl = document.getElementById("difficulty");
+const resultsEl = document.querySelector(".results");
+let celleScoperte = [];
+let punteggio = 0;
+
 
 // al click del bottone genera il campo richesto
 btnGenerate.addEventListener("click", function () {
     generateCampo(parseInt(difficultyEl.value));
 })
+
+// quando scopro tutte le celle il gioco finisce
+
 
 
 
@@ -23,7 +30,8 @@ function generateCampo(numCelle) {
 
     campoEl.innerHTML = "";
     campoEl.classList.add("campo_border");
-
+    resultsEl.classList.remove("results_transition");
+    punteggio = 0;
 
     // generazione lista con posizione delle bombe
     const bombsList = generateBombs(16);
@@ -40,21 +48,28 @@ function generateCampo(numCelle) {
         newCell.classList.add(`cella`);
         newCell.dataset.numCella = i + 1;
 
+
+        //Al click sulla cella: effetti grafici & controllo bomba
         newCell.addEventListener("click", function () {
             if (!lost) {
                 this.classList.toggle(`cell_selected`);
+                punteggio ++;
                 const cellSelected = parseInt(this.dataset.numCella);
                 if (bombsList.includes(cellSelected)) {
                     lost = true;
-                    console.log("bomba trovata");
                     this.classList.add("bomb_explosion", "bkg_bomb");
+
+                    // controllo bomba positivo --> effetti fine gioco
                     for (let i = 1; i < parseInt(difficultyEl.value); i++) {
                         const currentCell = document.querySelector(`[data-num-cella="${i}"]`);
                         if (bombsList.includes(parseInt(currentCell.dataset.numCella))) {
                             currentCell.classList.add("bkg_bomb");
-                            console.log(currentCell.dataset.numCella);
+                            resultsEl.innerHTML = `<h2> Punteggio: ${punteggio}`;
+                            resultsEl.classList.add("results_transition");
                         }
                     }
+                }else if (!celleScoperte.includes(cellSelected)){
+                   celleScoperte.push(cellSelected);
                 }
             }
 

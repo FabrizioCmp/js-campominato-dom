@@ -39,7 +39,6 @@ select{
     display: flex;
     flex-wrap: wrap;
     margin-top: 3rem;
-    /* background-color: rgb(190, 190, 190); */
     width: 50%;
     margin: auto;
     padding: 1rem;
@@ -79,4 +78,21 @@ select{
 /********* active effects *******/
 .btn_generate:active{
      border-color:  rgb(224, 196, 160) white white rgb(224, 196, 160) ;
+}
+
+.results{
+    background-color: rgba(240, 248, 255, 0.556);
+    height: 60px;
+    width: 50%;
+    margin: auto;
+    color: black;
+    transform: scale(0);
+    transition: all .5s ;
+    font-weight: 600;
+    text-align: center;
+    padding-top: 10px;
+}
+
+.results_transition{
+    transform: scale(1);
 }
