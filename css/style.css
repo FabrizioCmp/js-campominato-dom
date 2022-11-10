@@ -69,6 +69,12 @@ select{
 .bomb_explosion{
     background-color: red;
 }
+.bkg_bomb{
+    background-image: url(../imgs/bomb_img.png);
+    background-position: center;
+    background-size: 60%;
+    background-repeat: no-repeat;
+}
 
 /********* active effects *******/
 .btn_generate:active{
