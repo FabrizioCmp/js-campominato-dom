@@ -66,6 +66,9 @@ select{
     border-color:  rgb(224, 196, 160) white white rgb(224, 196, 160) ;
 }
 
+.bomb_explosion{
+    background-color: red;
+}
 
 /********* active effects *******/
 .btn_generate:active{

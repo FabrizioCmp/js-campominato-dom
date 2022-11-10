@@ -37,12 +37,17 @@ function generateCampo(numCelle){
 
         newCell.style.width = `calc(100% / ${cellePerRiga})`;
         newCell.classList.add(`cella`);
-        // newCell.innerHTML = `<div>${i+1}</div>`;
         newCell.dataset.numCella = i+1;
 
         newCell.addEventListener("click", function(){
             this.classList.toggle(`cell_selected`);
-        })
+            const cellSelected = parseInt(this.dataset.numCella);
+            if (bombsList.includes(cellSelected)){
+                console.log("bomba trovata");
+                this.classList.add("bomb_explosion");
+            }
+            
+        });
     }
 }
 
@@ -54,7 +59,7 @@ function generateBombs(numBombs){
     let i = 1 ;
     const cellsWithBombs = [];
     while (i <= numBombs ) {
-        let nextbomb = Math.floor(Math.random() * 100 + 1);
+        let nextbomb = Math.floor(Math.random() * parseInt(difficultyEl.value) + 1);
         if(!cellsWithBombs.includes(nextbomb)){
             cellsWithBombs.push(nextbomb);
             i++;
