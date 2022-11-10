@@ -1,0 +1,73 @@
+body{
+    background-color: antiquewhite;
+}
+select{
+    padding: .3rem;
+}
+
+.game_title{
+    font-size: 4rem;
+    color: brown;
+    text-shadow: 3px 3px 4px black;
+    text-align: center;
+}
+
+.game_menu{
+    text-align: center;
+    margin: 3rem;
+    border: 10px solid;
+    border-color: white rgb(224, 196, 160) rgb(224, 196, 160) white;
+    padding: 1rem;
+}
+
+.game_menu > label{
+    font-size: 1.5rem;
+    margin-right: .5rem;
+}
+
+.btn_generate{
+    background-color: antiquewhite;
+    color: black;
+    border: 5px solid;
+    border-color: white rgb(224, 196, 160) rgb(224, 196, 160) white;
+    padding: .3rem 1rem;
+    margin-left: 3rem;
+    transition: all .3s;
+}
+
+.campo{
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 3rem;
+    /* background-color: rgb(190, 190, 190); */
+    width: 50%;
+    margin: auto;
+    padding: 1rem;
+    
+}
+
+.campo_border{
+    border: 10px solid;
+    border-color: white rgb(224, 196, 160) rgb(224, 196, 160) white;
+}
+
+.cella{
+    aspect-ratio: 1 / 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 200%;
+    border: 4px solid;
+    border-color: white rgb(224, 196, 160) rgb(224, 196, 160) white;
+}
+
+
+.cell_selected{
+    border-color:  rgb(224, 196, 160) white white rgb(224, 196, 160) ;
+}
+
+
+/********* active effects *******/
+.btn_generate:active{
+     border-color:  rgb(224, 196, 160) white white rgb(224, 196, 160) ;
+}
