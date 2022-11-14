@@ -68,6 +68,7 @@ function generateCampo(numCelle) {
                             currentCell.classList.add("bkg_bomb");
                             resultsEl.innerHTML = `<h2> Punteggio: ${punteggio}`;
                             resultsEl.classList.add("results_transition");
+                            endGame = true;
                         }
                     }
                 } else if (!celleScoperte.includes(cellSelected)) {
